@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>LoginDataDriven - Copy</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>e2a42544-998f-4695-a8e0-5e31c9f742aa</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>5906e46f-091a-4287-b9c9-db8081279caf</id>
+      <masked>false</masked>
+      <name>Email</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>5ef6c04f-ee59-4fcf-bd2d-4b20ba910ae3</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>0a278a6e-ff6a-4fe9-a8a9-6792d9a02d06</id>
+      <masked>false</masked>
+      <name>Nama</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>40e146cc-7bee-4bc0-9b38-20831e397ba4</id>
+      <masked>false</masked>
+      <name>Expected</name>
+   </variable>
+</TestCaseEntity>

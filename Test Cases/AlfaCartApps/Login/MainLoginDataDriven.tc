@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>MainLoginDataDriven</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d0c7b0b6-df12-4893-b090-a668232a16fd</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>2763ed48-6cfa-4df9-9be8-fd50e7e452b4</id>
+      <masked>false</masked>
+      <name>Email</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>11b06b7a-4c09-4eef-8d6c-5d939f950444</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>520ab6cb-3f8d-4f66-bec4-d559cb112a77</id>
+      <masked>false</masked>
+      <name>Nama</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>87b2d8f2-166a-40f8-a83c-627af52f0554</id>
+      <masked>false</masked>
+      <name>Expected</name>
+   </variable>
+</TestCaseEntity>
