@@ -20,60 +20,75 @@ import org.openqa.selenium.WebDriver as WebDriver
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import org.openqa.selenium.chrome.ChromeOptions as ChromeOptions
 
+
+
+
 for (def row = 1; row <= findTestData('DataLogin').getRowNumbers(); row++) {
-    //WebUI.click(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'))
     WebUI.openBrowser('https://www.alfacart.com/')
-
-    WebUI.delay(5, FailureHandling.STOP_ON_FAILURE)
-
-    if (WebUI.verifyElementPresent(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'), 2, FailureHandling.OPTIONAL)) {
+    WebUI.delay(3, FailureHandling.STOP_ON_FAILURE)
+    if (WebUI.verifyElementPresent(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'), 2, FailureHandling.OPTIONAL)) 
+	{
         WebUI.click(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart')) //WebUI.navigateToUrl('https://www.alfacart.com')
-        //WebUI.navigateToUrl('https://www.alfacart.com')
-        //WebUI.click(findTestObject('Page_Alfacart - Login/a_KlikAkunProfile'))
-        //WebUI.click(findTestObject('Page_Alfacart - Login/a_ButtonKeluarAkun'))
-        // WebUI.navigateToUrl('https://www.alfacart.com/Login')
-        //WebUI.navigateToUrl('https://www.alfacart.com/Login')
-    } else {
-        WebUI.click(findTestObject('Page_Alfacart - Login/button_Home Masuk  Daftar'))
-
-        WebUI.setText(findTestObject('Page_Alfacart - Login/input_Email  Nomor Ponsel_email'), findTestData('DataLogin').getValue(
+    } 
+    WebUI.click(findTestObject('Page_Alfacart - Login/button_Home Masuk  Daftar'))
+    WebUI.setText(findTestObject('Page_Alfacart - Login/input_Email  Nomor Ponsel_email'), findTestData('DataLogin').getValue(
                 'Email', row))
-
-        WebUI.setText(findTestObject('Page_Alfacart - Login/input_Password_password'), findTestData('DataLogin').getValue(
+	WebUI.setText(findTestObject('Page_Alfacart - Login/input_Password_password'), findTestData('DataLogin').getValue(
                 'Password', row))
-
-        WebUI.click(findTestObject('Page_Alfacart - Login/input_Password_btn btn-login masuk'))
-
-        if (WebUI.verifyElementPresent(findTestObject('ErrorMessage/AkunInvalidphone number or password'), 2, FailureHandling.OPTIONAL)) {
-            WebUI.verifyElementText(findTestObject('ErrorMessage/AkunInvalidphone number or password'), findTestData('DataLogin').getValue(
+    WebUI.click(findTestObject('Page_Alfacart - Login/input_Password_btn btn-login masuk'))
+	
+	
+    if (WebUI.verifyElementPresent(findTestObject('ErrorMessage/AkunInvalidphone number or password'), 2, FailureHandling.OPTIONAL)) 
+		{
+			String textToWrite = WebUI.getText(findTestObject ('ErrorMessage/AkunInvalidphone number or password'))
+			WebUI.verifyElementText(findTestObject('ErrorMessage/AkunInvalidphone number or password'), findTestData('DataLogin').getValue(
                     'Expected', row))
-
             println('Password Salah')
-
             WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
-        } else if (WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Alfacart - Login/h4_Ringkasan Akun'), 
-            2, FailureHandling.OPTIONAL)) {
-            WebUI.verifyElementText(findTestObject('Page_Alfacart - Login/NamaAkunprofile'), findTestData('DataLogin').getValue(
+			CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'ok')		
+			CustomKeywords.'com.utilities.ExcelExpected.cobaWriteExcel'(row, textToWrite)
+       } 
+		else if (WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Alfacart - Login/h4_Ringkasan Akun'), 
+            2, FailureHandling.OPTIONAL)) 
+		{
+			String textToWrite = WebUI.getText(findTestObject ('Page_Alfacart - Login/NamaAkunprofile'))
+           WebUI.verifyElementText(findTestObject('Page_Alfacart - Login/NamaAkunprofile'), findTestData('DataLogin').getValue(
                     'Nama', row))
-
             WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
-
             WebUI.takeScreenshot()
-
             WebUI.click(findTestObject('Page_Alfacart - Login/div_Hi,Akun'))
-
             WebUI.click(findTestObject('Page_Alfacart - Login/a_Keluar'))
-
             WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
-        } else if (WebUI.verifyElementPresent(findTestObject('Object Repository/ErrorMessage/p_UnikEmailAkunAndaSementaraTidakDapatDigunakan'), 
-            2, FailureHandling.OPTIONAL)) {
-            WebUI.verifyElementText(findTestObject('ErrorMessage/p_UnikEmailAkunAndaSementaraTidakDapatDigunakan'), findTestData(
+			println('Akun Sukses masuk ke profile')
+			CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'ok')
+			
+			
+			CustomKeywords.'com.utilities.ExcelExpected.cobaWriteExcel'(row,textToWrite)
+			
+			} 
+			
+		else if (WebUI.verifyElementPresent(findTestObject('Object Repository/ErrorMessage/p_Akun Anda untuk sementara tidak dapat digunakan untuk berbelanja'), 
+            2, FailureHandling.OPTIONAL)) 
+		{
+			String textToWrite = WebUI.getText(findTestObject ('Object Repository/ErrorMessage/p_Akun Anda untuk sementara tidak dapat digunakan untuk berbelanja'))
+           WebUI.verifyElementText(findTestObject('Object Repository/ErrorMessage/p_Akun Anda untuk sementara tidak dapat digunakan untuk berbelanja'), findTestData(
                     'DataLogin').getValue('Expected', row))
-
-            println('Email berupa character atau angka /n')
-        }
+			
+		   
+			WebUI.delay(1, FailureHandling.STOP_ON_FAILURE)
+          println('Email berupa character atau angka')
+			
+			
+			CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row, 'OKe')
+			CustomKeywords.'com.utilities.ExcelExpected.cobaWriteExcel'(row,textToWrite)
+		
+		
     }
+			WebUI.closeBrowser()
 }
+        
+    
 
-WebUI.closeBrowser()
+
+
 
