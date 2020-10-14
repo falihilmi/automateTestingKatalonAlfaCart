@@ -48,7 +48,7 @@ public class TestWriteExcel {
 		if (cell==null)
 			//sheet.createRow(indexRow)
 			for (int i=1; i<2; i++){
-				sheet.getRow(indexRow).createCell(5).setCellValue(Strtest)
+				sheet.getRow(indexRow).createCell(6).setCellValue(Strtest)
 			}
 
 

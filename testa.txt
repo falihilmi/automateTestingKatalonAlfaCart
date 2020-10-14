@@ -1,0 +1,49 @@
+if (WebUI.verifyElementText(findTestObject('p_Isi organization name field is required'), findTestData('DataExcelDemo').getValue(
+            'Expectation', row)) == true) {
+        String textToWrite = WebUI.getText(findTestObject('p_Isi organization name field is required'))
+
+        CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'OK invalid id')
+    } else {
+        CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'NO invalid id')
+
+        if (WebUI.verifyElementPresent(findTestObject('PageRequestDemo/h1_Thank you for contacting us')))
+		{
+			CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'OK invalid id')
+			WebUI.takeScreenshot()
+        }
+    }
+    
+    WebUI.closeBrowser()
+}
+
+WebUI.verifyElementPresent(findTestObject('PageRequestDemo/h1_Thank you for contacting us'), 0)
+
+
+
+
+
+
+
+
+
+
+---------
+//WebUI.verifyElementText(findTestObject('p_Isi organization name field is required'), findTestData('DataExcelDemo').getValue(
+		//'Expectation', row))
+}
+	/* if (WebUI.verifyElementPresent(findTestObject('p_Isi organization name field is required'))) 
+		{
+			String textToWrite = WebUI.getText(findTestObject ('p_Isi organization name field is required'))
+			if(textToWrite==(findTestData('DataExcelDemo').getValue('Expectation', row)))
+			{
+				CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'OK invalid id')}
+			else{
+				CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'NO invalid id')
+			}}
+	else if(WebUI.verifyElementPresent(findTestObject('PageRequestDemo/h1_Thank you for contacting us'))){
+		CustomKeywords.'com.utilites.WriteExcelStatus.demoWriteExcel'(row, 'OK invalid id')
+		}
+		
+	//}
+	 * 
+	 */

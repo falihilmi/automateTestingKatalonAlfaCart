@@ -41,7 +41,7 @@ WebUI.navigateToUrl('https://www.alfacart.com/')
 WebUI.delay(5, FailureHandling.STOP_ON_FAILURE)
 
 if (WebUI.verifyElementPresent(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'), 2, FailureHandling.OPTIONAL)) {
-	WebUI.click(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'))
+    WebUI.click(findTestObject('Page_Alfacart - Login/a_AdvertiseAlfaCart'))
 }
 
 WebUI.click(findTestObject('Page_Alfacart - Login/button_Home Masuk  Daftar'))
@@ -49,13 +49,13 @@ WebUI.click(findTestObject('Page_Alfacart - Login/button_Home Masuk  Daftar'))
 //WebUI.setText(findTestObject('Page_Alfacart - Login/input_Email  Nomor Ponsel_email'), Email)
 //WebUI.setText(findTestObject('Page_Alfacart - Login/input_Password_password'), Password)
 WebUI.setText(findTestObject('Page_Alfacart - Login/input_Email  Nomor Ponsel_email'), findTestData('DataLogin').getValue(
-        'Email', 2))
+        'Email', 3))
 
 WebUI.setText(findTestObject('Page_Alfacart - Login/input_Password_password'), findTestData('DataLogin').getValue('Password', 
-        2))
+        3))
 
 WebUI.click(findTestObject('Page_Alfacart - Login/input_Password_btn btn-login masuk'))
 
 WebUI.verifyElementText(findTestObject('Page_Alfacart - Login/NamaAkunprofile'), findTestData('DataLogin').getValue('Nama', 
-        2))
+        3))
 

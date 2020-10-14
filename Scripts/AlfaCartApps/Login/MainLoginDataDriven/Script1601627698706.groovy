@@ -40,9 +40,9 @@ for (def row = 1; row <= findTestData('DataLogin').getRowNumbers(); row++) {
 		String textToWrite = WebUI.getText(findTestObject ('ErrorMessage/AkunInvalidphone number or password'))
 			if (WebUI.verifyElementText(findTestObject('ErrorMessage/AkunInvalidphone number or password'), findTestData('DataLogin').getValue('Expected', row))==true)
 			{
-				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'OK invalid id')
+				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'OK (PASS)')
 			}else{
-			CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'NO invalid id')
+			CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'NO (FAIL)')
 			}
             println('Password Salah')
             WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)		
@@ -53,11 +53,11 @@ for (def row = 1; row <= findTestData('DataLogin').getRowNumbers(); row++) {
 			String textToWrite = WebUI.getText(findTestObject ('Page_Alfacart - Login/NamaAkunprofile'))
 			if (WebUI.verifyElementText(findTestObject('Page_Alfacart - Login/NamaAkunprofile'), findTestData('DataLogin').getValue('Nama', row))==true)
 			{
-				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'OK berhasil masuk profile')
+				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'OK (PASS)')
 			}else{
-				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'NO tidak masuk profile')
+				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row,'NO (FAIL)')
 			}
-            WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
+            WebUI.delay(1, FailureHandling.STOP_ON_FAILURE)
             WebUI.takeScreenshot()
             WebUI.click(findTestObject('Page_Alfacart - Login/div_Hi,Akun'))
             WebUI.click(findTestObject('Page_Alfacart - Login/a_Keluar'))
@@ -70,9 +70,9 @@ for (def row = 1; row <= findTestData('DataLogin').getRowNumbers(); row++) {
 			String textToWrite = WebUI.getText(findTestObject ('Object Repository/ErrorMessage/p_Akun Anda untuk sementara tidak dapat digunakan untuk berbelanja'))
 			if(WebUI.verifyElementText(findTestObject('Object Repository/ErrorMessage/p_Akun Anda untuk sementara tidak dapat digunakan untuk berbelanja'), findTestData('DataLogin').getValue('Expected', row),FailureHandling.CONTINUE_ON_FAILURE)==true)
 			{
-				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row, 'Oke')
+				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row, 'OK (PASS)')
 			}else{
-				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row, 'NO')
+				CustomKeywords.'com.utilities.TestWriteExcel.demoWriteExcel'(row, 'NO (FAIL)')
 			}
 			WebUI.delay(1, FailureHandling.STOP_ON_FAILURE)
 			println('Email berupa character atau angka')
