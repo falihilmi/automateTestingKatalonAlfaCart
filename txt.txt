@@ -1,3 +1,0 @@
-email harus mengandung element @
-insert email numeric only lolos
-length nomor melebihi seharusnya	
